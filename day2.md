@@ -16,7 +16,7 @@ EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
 ```
-***
+
 ### Problem 2 
 ---
 * Create Dockerfile for single stage
@@ -33,7 +33,7 @@ COPY  . .
 
 CMD [ "npm" , "start" ]
 ```
-===
+=
 
 * Create Dockerfile for Multi stage
 
@@ -58,3 +58,9 @@ EXPOSE 80
 
 CMD ["nginx", "-g" , "deamon off"]
 ```
+```
+docker build -t react_app_multistage:V1 .
+docker run -d --name gasser_react_multistage3 -p 80:80 react_app_multistage:V1 
+```
+React app image single stage: 683mb
+React app image Multi stage: 41mb
