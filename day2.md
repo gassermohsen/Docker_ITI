@@ -1,7 +1,6 @@
 # Day 2 
 
->> Problem 1 
-
+## Problem 1
 
 ```
 FROM ubuntu:23.04
