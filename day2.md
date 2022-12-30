@@ -1,8 +1,9 @@
 # Day 2 
 
 ### Problem 1
-
+***
 * Create Dockerfile 
+---
 ```
 FROM ubuntu:23.04
 
@@ -16,11 +17,11 @@ EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
 ```
-
+***
 ### Problem 2 
-
+---
 * Create Dockerfile for single stage
-
+---
 ```
 FROM node:alpine 
 
