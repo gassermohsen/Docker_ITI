@@ -73,3 +73,28 @@ React app image Multi stage: 41mb
 
 - network plugins: You can install and use third-party network plugins with Docker. These plugins are available from Docker Hub or from third-party vendors.
 
+---
+### Problem 4 
+
+* Frist create our containers 
+```bash 
+ sudo docker run -d -t -p 8082:80 --name ubuntu3 ubuntu
+ sudo docker run -d -t -p 8084:80 --name ubuntu5 ubuntu
+```
+ 2- Create new Network 
+```bash
+ sudo docker network create lab2
+```
+ 3- Check if your containers are part of the new network
+```bash
+ sudo docker network inspect lab2
+```
+4- Connect the containers to the network
+```bash
+sudo docker network connect lab2 ubuntu5
+sudo docker network connect lab2 ubuntu5
+```
+5- Test the connection
+```bash
+sudo docker exec -it ubuntu3 ping ubuntu5
+```
