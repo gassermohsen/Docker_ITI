@@ -1,4 +1,4 @@
-# Day 2 
+# Day 3
 
 ### Problem 1
 ***
@@ -50,6 +50,6 @@ services:
   redis:
     image: "redis:alpine"
 ```
-* <span style="color:red">Warning!</span>.
+* <span style="color:red">some **Warning!**</span>.
 * <span style="color:red">it works only with the redis container ip not the localhost i dont know why 😮‍💨</span>.
 
