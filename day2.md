@@ -78,23 +78,19 @@ React app image Multi stage: 41mb
 
 * Frist create our containers 
 ```bash 
- sudo docker run -d -t -p 8082:80 --name ubuntu3 ubuntu
- sudo docker run -d -t -p 8084:80 --name ubuntu5 ubuntu
+ sudo docker run -d -t -p 8090:80 --name ubuntu_network ubuntu
+ sudo docker run -d -t -p 8091:80 --name ubuntu2_network ubuntu
 ```
  2- Create new Network 
 ```bash
- sudo docker network create lab2
-```
- 3- Check if your containers are part of the new network
-```bash
- sudo docker network inspect lab2
+ sudo docker network create gasser_network
 ```
 4- Connect the containers to the network
 ```bash
-sudo docker network connect lab2 ubuntu5
-sudo docker network connect lab2 ubuntu5
+sudo docker network connect gasser_network ubuntu
+sudo docker network connect gasser_network ubuntu2
 ```
 5- Test the connection
 ```bash
-sudo docker exec -it ubuntu3 ping ubuntu5
+sudo docker exec -it ubuntu ping ubuntu2
 ```
