@@ -3,7 +3,6 @@
 ### Problem 1
 ***
 * Create Dockerfile 
----
 ```
 FROM ubuntu:23.04
 
@@ -21,7 +20,6 @@ CMD ["nginx", "-g", "daemon off;"]
 ### Problem 2 
 ---
 * Create Dockerfile for single stage
----
 ```
 FROM node:alpine 
 
@@ -35,7 +33,28 @@ COPY  . .
 
 CMD [ "npm" , "start" ]
 ```
+===
 
+* Create Dockerfile for Multi stage
 
+```
+FROM node:alpine AS build
 
+WORKDIR /app
 
+COPY package*.json ./
+
+RUN npm install 
+
+COPY  . .
+
+RUN npm run build 
+
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html 
+
+EXPOSE 80
+
+CMD ["nginx", "-g" , "deamon off"]
+```
