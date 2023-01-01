@@ -28,7 +28,7 @@ RUN pip install -r requirements.txt
 
 COPY app.py .
 
-EXPOSE 5000
+EXPOSE 8000
 
 CMD [ "python" ,"app.py"]
 ```
@@ -40,16 +40,15 @@ version: '3'
 services:
   flask-service:
     container_name: flask_app
-    image: python_flask:V1.3
+    image: python_flask:V1.4
     ports:
-      - "5000:5000"
-    links:
+      - "8000:8000"
+    depends_on:
       - redis
    
 
   redis:
     image: "redis:alpine"
 ```
-## <span style="color:red">**Warning!** ⚠️</span>.
-### <span style="color:red">it works only with the redis container ip not the localhost i dont know why😮‍💨</span>.
+
 
